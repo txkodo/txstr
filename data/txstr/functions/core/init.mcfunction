@@ -1,6 +1,8 @@
 
 forceload add 29999999 43376
 
+data modify storage txstr version set value "1.0"
+
 #define storage txstr:io
 #define storage txstr
 
@@ -55,4 +57,3 @@ data modify entity f2f670c8-260b-4689-ae50-7f8de19a38de Tags set value ['a','b',
 
 #alias entity marker1 d718fdc0-dc29-44f3-9409-0012bde34e23
 #alias entity marker2 f2f670c8-260b-4689-ae50-7f8de19a38de
-
