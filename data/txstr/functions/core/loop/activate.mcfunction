@@ -1,4 +1,4 @@
 # 処理開始
 
 # リピートコマブロを起動
-data modify block 0 2 0 auto set value 1b
+data modify block 29999984 2 43381 auto set value 1b

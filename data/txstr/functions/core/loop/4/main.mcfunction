@@ -1,7 +1,7 @@
 
 # ソート済みと未ソートが同じ文字列かを確認する
-data modify storage txstr loop.compare set from block 1 1 0 LastOutput
-execute store success storage txstr loop.gt byte 1 run data modify storage txstr loop.compare set from block 1 0 0 LastOutput
+data modify storage txstr loop.compare set from block 29999985 1 43381 LastOutput
+execute store success storage txstr loop.gt byte 1 run data modify storage txstr loop.compare set from block 29999985 0 43381 LastOutput
 
 # 次に比較する文字を決定する
 # 上書きが成功(splitのほうが大きい)
