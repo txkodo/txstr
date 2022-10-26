@@ -7,3 +7,5 @@ execute store success storage txstr loop.done byte 1 if data storage txstr loop{
 execute store success storage txstr loop.done byte 1 if data storage txstr loop{done:0b} if data storage txstr loop{id:4} run function txstr:core/loop/4/
 execute store success storage txstr loop.done byte 1 if data storage txstr loop{done:0b} if data storage txstr loop{id:5} run function txstr:core/loop/5/
 execute store success storage txstr loop.done byte 1 if data storage txstr loop{done:0b} if data storage txstr loop{id:6} run function txstr:core/loop/6/
+
+execute if data storage txstr loop{done:0b} run function txstr:core/loop/disactivate

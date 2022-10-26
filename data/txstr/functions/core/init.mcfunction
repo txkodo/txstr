@@ -29,6 +29,7 @@ data modify storage txstr:io next_char set value 0b
 data modify storage txstr:io continue set value 0b
 
 data modify storage txstr loop.in_callback set value 0b
+data modify storage txstr loop.id set value 1
 
 data modify storage txstr:io string set value ""
 data modify storage txstr:io split set value []
@@ -57,10 +58,12 @@ setblock 29999985 2 43381 oak_wall_sign[facing=east]
 #alias vector repeat_cmd 29999984 2 43381
 
 #define entity d718fdc0-dc29-44f3-9409-0012bde34e23
-execute unless entity d718fdc0-dc29-44f3-9409-0012bde34e23 run summon marker 29999984 0 43381 {UUID:[I;-686228032,-601275149,-1811349486,-1109176797]}
+kill d718fdc0-dc29-44f3-9409-0012bde34e23
+summon marker 29999984 0 43381 {UUID:[I;-686228032,-601275149,-1811349486,-1109176797]}
 
 #define entity f2f670c8-260b-4689-ae50-7f8de19a38de
-execute unless entity f2f670c8-260b-4689-ae50-7f8de19a38de run summon marker 29999984 0 43381 {UUID:[I;-218730296,638273161,-1370456179,-509986594]}
+kill f2f670c8-260b-4689-ae50-7f8de19a38de
+summon marker 29999984 0 43381 {UUID:[I;-218730296,638273161,-1370456179,-509986594]}
 
 data modify entity f2f670c8-260b-4689-ae50-7f8de19a38de Tags set value ['a','b','c']
 

@@ -1,7 +1,7 @@
 # 処理を中断しtickを跨ぐ
 
-# リピートコマブロを止める
-data modify block 29999984 2 43381 auto set value 0b
+# このチェーンコマブロを止める
+data modify block 29999984 1 43381 UpdateLastExecution set value 1b
 
 # コマブロの中身をリセット
 data modify block 29999985 1 43381 Command set value ''
