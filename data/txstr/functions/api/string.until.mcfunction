@@ -27,12 +27,14 @@
 # @output storage txstr:io コールバック時の出力
 #          string(string) 分割元の文字列
 #          split(list[string]) 分割された文字列のリスト。結果はこれに追加される
+#          sub_split(list[string]) 新しく分割された文字列のリスト(実行前後のsplitの差分)
 #          charset(list[string]) 使用されうる文字列集合(基本的にunicode順)
 #          args(compound) コールバック実行時まで保存される変数空間
 #          result(byte) 処理結果 (1b:途中の文字を読み取って成功,0b:最後の文字を読み取って成功,-1b:エラー)
 
 data modify storage txstr:io args.args set from storage txstr:io args
 data modify storage txstr:io args.until set from storage txstr:io until
+data modify storage txstr:io args.sub set value []
 data modify storage txstr:io args.callback set from storage txstr:io callback
 data modify storage txstr:io callback set value 'function txstr:core/string/until/'
 function txstr:api/char
