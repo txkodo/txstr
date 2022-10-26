@@ -1,9 +1,10 @@
-
+gamerule maxCommandChainLength 2147483647
 forceload add 29999999 43376
 
 data modify storage txstr version set value "1.0"
 
 #define storage txstr:io
+#define storage txstr:util
 #define storage txstr
 
 #define objective txstr
@@ -13,8 +14,14 @@ scoreboard objectives add txstr dummy
 #define score_holder $m
 #define score_holder $r
 
+#define score_holder #-1
+scoreboard players set #-1 txstr -1
+
 #define score_holder #2
 scoreboard players set #2 txstr 2
+
+#define score_holder #10
+scoreboard players set #10 txstr 10
 
 data modify storage txstr:io max_loop set value 1024
 
