@@ -12,3 +12,5 @@ execute if data storage txstr loop{active:1b} run function txstr:core/loop/1/mai
 
 # 次tickに回す
 execute if data storage txstr loop{count:0} run function txstr:core/loop/pause
+
+# tellraw @a {"nbt":"loop.count","storage": "txstr"}
