@@ -1,5 +1,5 @@
 data modify storage txstr string.until.tmp set from storage txstr:io args.until
-execute store result storage txstr string.until.flag byte 1 run data modify storage txstr string.until.tmp set from storage txstr:io split[-1]
+execute store result storage txstr string.until.fail byte 1 store result storage txstr string.until.flag byte 1 run data modify storage txstr string.until.tmp set from storage txstr:io split[-1]
 
 execute unless data storage txstr:io {result:1b} run data modify storage txstr string.until.flag set value 0b
 

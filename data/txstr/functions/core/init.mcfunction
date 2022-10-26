@@ -32,6 +32,8 @@ data modify storage txstr:io callback set value {}
 data modify storage txstr env set value {}
 data modify storage txstr queue set value []
 
+function txstr:api/charset/ascii
+
 # 29999984 0 43381
 setblock 29999984 2 43381 repeating_command_block[facing=down]{"Command":"function txstr:core/loop/enter"}
 setblock 29999984 1 43381 chain_command_block[facing=east]{"UpdateLastExecution":0b,auto:1b,Command:"function txstr:core/loop/"}
