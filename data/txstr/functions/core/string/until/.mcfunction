@@ -1,11 +1,9 @@
-# 探索した文字をsubに追加
-data modify storage txstr:io args.sub append from storage txstr:io split[-1]
+function atasx:api/start
 
-data modify storage txstr string.until.tmp set from storage txstr:io args.until
-execute store result storage txstr string.until.fail byte 1 store result storage txstr string.until.flag byte 1 run data modify storage txstr string.until.tmp set from storage txstr:io split[-1]
+data modify storage tasx: var.range set value []
 
-execute unless data storage txstr:io {result:1b} run data modify storage txstr string.until.flag set value 0b
-
-execute if data storage txstr string.until{flag:1b} run function txstr:core/string/until/next
-
-execute if data storage txstr string.until{flag:0b} run function txstr:core/string/until/end
+data modify storage tasx: arg.string set from storage tasx: var.string
+data modify storage tasx: arg.split set from storage tasx: var.split
+data modify storage tasx: arg.charset set from storage tasx: var.charset
+data modify storage tasx: callback set value 'function txstr:core/string/until/1'
+function txstr:api/char

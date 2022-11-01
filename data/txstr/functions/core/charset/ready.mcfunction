@@ -1,11 +1,11 @@
 # env.charsetを二分探索できるように整理する
-data modify storage txstr charset.forward set from storage txstr env.charset
-data modify storage txstr charset.backward set value []
-
-execute store result score $m txstr store result score $r txstr run data get storage txstr charset.forward
-scoreboard players set $l txstr 0
+data modify storage tasx: var.char.forward set from storage tasx: var.charset
+data modify storage tasx: var.char.forward append value "￿"
+data modify storage tasx: var.char.backward set value []
+execute store result storage tasx: var.char.m int 1 store result storage tasx: var.char.r int 1 if data storage tasx: var.char.forward[]
+data modify storage tasx: var.char.l set value 0
 
 # txstr:core/charset/middleで上書きするためのダミー要素
-data modify storage txstr env.split append value ""
+data modify storage tasx: var.split append value ""
 
 function txstr:core/charset/middle

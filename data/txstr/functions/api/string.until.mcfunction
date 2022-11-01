@@ -1,40 +1,20 @@
 #> txstr:api/string.until
 # 
-# stringからsplitの続きを指定した文字がでるまで読み取る
+# 指定した文字まで読む
 # 
-# string : 'abcdefg'
-# until : 'f'
-# split : ['a']
-# として実行すると
-# split : ['a','b','c','d','e','f']
-# という実行結果になる
+# @input  tasx: 
+#   callback    :string
+#   arg.string  :string
+#   arg.until   :string
+#   arg.split   :string[]
+#   arg.charset :string[]
 # 
-# 最後の文字に到達orエラーになると指定した文字数より手前で終了する
-# 
-# 下記のようなケースではエラーになる
-# 1. string : ['abcdefg'] split : ['x','y','z']
-# 2. string : ['あいうえお'] charset : ['a','b'...'y','z']
-# 1. string : ['abcdefg'] until : 'x'
-# 
-# @input storage txstr:io
-#          string(string) 分割元の文字列
-#          split(list[string]) 分割された文字列のリスト。結果はこれに追加される
-#          charset(list[string]) 使用されうる文字列集合(基本的にunicode順)
-#          callback(string) 処理終了時に呼ばれるコールバック
-#          args(compound) コールバック実行時まで保存される変数空間
-# 
-# コールバック時の出力
-# @output storage txstr:io コールバック時の出力
-#          string(string) 分割元の文字列
-#          split(list[string]) 分割された文字列のリスト。結果はこれに追加される
-#          sub_split(list[string]) 新しく分割された文字列のリスト(実行前後のsplitの差分)
-#          charset(list[string]) 使用されうる文字列集合(基本的にunicode順)
-#          args(compound) コールバック実行時まで保存される変数空間
-#          result(byte) 処理結果 (1b:途中の文字を読み取って成功,0b:最後の文字を読み取って成功,-1b:エラー)
+# @output tasx:
+#   var.range : string[]
+#   var.state : byte
+#       -2b : 最後まで読んだが指定の文字が見つからなかった,
+#       -1b : charsetにない文字が入っていた,
+#        0b : 最後の文字で指定の文字が見つかった
+#        1b : 途中の文字で指定の文字が見つかった
 
-data modify storage txstr:io args.args set from storage txstr:io args
-data modify storage txstr:io args.until set from storage txstr:io until
-data modify storage txstr:io args.sub set value []
-data modify storage txstr:io args.callback set from storage txstr:io callback
-data modify storage txstr:io callback set value 'function txstr:core/string/until/'
-function txstr:api/char
+function txstr:core/string/until/

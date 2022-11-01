@@ -1,6 +1,5 @@
 {
-  "replace": false,
-  "values": [
-    "txstr:core/load"
-  ]
+	"values": [
+		"txstr:core/load"
+	]
 }

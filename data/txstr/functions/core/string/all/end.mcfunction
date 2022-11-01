@@ -1,3 +1,3 @@
-data modify storage txstr:io sub_split set from storage txstr:io args.sub
-data modify storage txstr:io callback set from storage txstr:io args.callback
-data modify storage txstr:io args set from storage txstr:io args.args
+data modify storage tasx: return.range set from storage tasx: var.range
+data modify storage tasx: return.state set from storage tasx: var.state
+function atasx:api/end

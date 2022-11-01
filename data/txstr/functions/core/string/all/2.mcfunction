@@ -1,6 +1,3 @@
-function atasx:api/start
-
-data modify storage tasx: var.range set value []
 
 data modify storage tasx: arg.string set from storage tasx: var.string
 data modify storage tasx: arg.split set from storage tasx: var.split
